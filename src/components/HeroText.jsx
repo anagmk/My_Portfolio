@@ -1,4 +1,3 @@
-import React from "react";
 import FlipWords from "../components/FlipWords.jsx";
 import { motion } from "motion/react";
 

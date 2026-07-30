@@ -60,7 +60,7 @@ const Navbar = () => {
           className={`sm:hidden overflow-hidden transition-[max-height,opacity,transform,margin] duration-300 ease-out ${
             isOpen
               ? "max-h-80 mt-4 opacity-100 translate-y-0"
-              : "max-h-0 mt-0 opacity-0 -translate-y-2 pointer-events-none"
+              : "max-h-0 mt-0 opacity-0 -translate-y-2"
           }`}
           aria-hidden={!isOpen}
         >
