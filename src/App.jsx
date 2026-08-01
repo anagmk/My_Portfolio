@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "./sections/navbar";
 import Hero from "./sections/Hero";
-import About from "./sections/About";
+import About from "./sections/about";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
