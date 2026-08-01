@@ -11,7 +11,7 @@ const HeroText = () => {
       {/*Desktop view*/}
       <div className="hidden md:flex flex-col">
         <motion.h1
-          className="text-4xl font-medium"
+          className="text-4xl font-medium text-white"
           initial={varients.hidden}
           animate={varients.visible}
           transition={{ delay: 1 }}
@@ -54,7 +54,7 @@ const HeroText = () => {
           initial={varients.hidden}
           animate={varients.visible}
           transition={{ delay: 1 }}
-          className="text-3xl font-medium"
+          className="text-3xl font-medium text-white"
         >
           HI Im Anag
         </motion.h1>

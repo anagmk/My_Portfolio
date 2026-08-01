@@ -9,7 +9,7 @@ function Navigation() {
         </a>
       </li>
       <li className="nav-li">
-        <a href="/about" className="nav-link">
+        <a href="#about" className="nav-link">
           About
         </a>
       </li>
@@ -27,19 +27,45 @@ function Navigation() {
   );
 }
 
-const Navbar = () => {
+const Navbar = ({ theme, setTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg bg-primary/40">
+    <div className="fixed inset-x-0 z-50 w-full backdrop-blur-lg bg bg-primary/40">
       <div className="mx-auto container py-4">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-4">
           <a
             href="/"
             className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
           >
             My App
           </a>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setTheme("dark")}
+              className={`rounded-full border px-3 py-1 text-xs transition ${
+                theme === "dark"
+                  ? "bg-white text-black border-white"
+                  : "bg-transparent text-white border-white/40"
+              }`}
+            >
+              Dark
+            </button>
+            <button
+              type="button"
+              onClick={() => setTheme("light")}
+              className={`rounded-full border px-3 py-1 text-xs transition ${
+                theme === "light"
+                  ? "bg-white text-black border-white"
+                  : "bg-transparent text-white border-white/40"
+              }`}
+            >
+              Light
+            </button>
+          </div>
+
           <button
             className="w-10 h-10 bg-primary hover:bg-primary-hover text-white rounded flex items-center justify-center sm:hidden"
             aria-label={isOpen ? "Close menu" : "Open menu"}

@@ -6,7 +6,7 @@ import Astronaut from "../components/Astronaut.jsx";
 import { MOUSE } from "three";
 import { useMediaQuery } from "react-responsive";
 
-const Hero = () => {
+const Hero = ({ theme }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 771px)" });
   return (
     <section
@@ -14,14 +14,14 @@ const Hero = () => {
       className="relative min-h-[140vh] md:min-h-[160vh] overflow-hidden"
     >
       {/* Background */}
-      <ParallelBackground />
+      <ParallelBackground theme={theme} />
 
       {/* Text */}
       <HeroText />
 
       {/* 3D Canvas */}
       <div
-        className="absolute inset-0 z-20"
+        className="absolute inset-0 z-10"
         onContextMenuCapture={(event) => {
           event.nativeEvent.stopImmediatePropagation();
         }}
@@ -45,6 +45,7 @@ const Hero = () => {
           <directionalLight position={[5, 5, 5]} intensity={2} />
 
           <Astronaut
+            theme={theme}
             scale={isMobile ? 0.2 : 0.3}
             position={isMobile ? [0.6, -0.5, 0] : [2.8, 0.5, 0]}
           />

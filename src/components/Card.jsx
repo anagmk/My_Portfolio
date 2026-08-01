@@ -1,7 +1,10 @@
 import React from "react";
 import {motion} from "motion/react";
 
-const Card = ({ style, text, image,container }) => {
+const Card = ({ style, text, image, container, theme = "light" }) => {
+  const textColor = theme === "dark" ? "text-white" : "text-slate-900";
+  const cardBackground = theme === "dark" ? "bg-storm" : "bg-white";
+
   return image && !text ? (
     <motion.img
       src={image}
@@ -16,7 +19,7 @@ const Card = ({ style, text, image,container }) => {
   ) : (
     <motion.div
       style={style}
-      className="absolute px-1 py-4 text-lg text-center rounded-full ring ring-gray-700 font-extralight bg-storm w-[12rem] curson-grab"
+      className={`absolute px-1 py-4 text-lg text-center rounded-full ring ring-gray-700 font-extralight w-[12rem] curson-grab ${cardBackground} ${textColor}`}
       whileHover={{ scale: 1.05 }}
       drag
       dragConstraints={container}

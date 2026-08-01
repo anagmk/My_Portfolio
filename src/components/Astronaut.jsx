@@ -7,19 +7,31 @@ Title: Tenhun Falling spaceman (FanArt)
 */
 
 import { useRef, useEffect } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
 
-export function Astronaut(props) {
+export function Astronaut({ theme = "light", ...props }) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(
     "/models/tenhun_falling_spaceman_fanart.glb",
   );
+  const darkTexture = useTexture("/models/dark-model-texture-1.png");
+  const baseMaterial = materials["AstronautFallingTexture.png"];
+  const originalTextureRef = useRef(baseMaterial?.map ?? null);
   const { actions } = useAnimations(animations, group);
+
   useEffect(() => {
     if (animations.length > 0) {
       actions[animations[0].name]?.play();
     }
   }, [animations, actions]);
+
+  useEffect(() => {
+    if (!baseMaterial) return;
+
+    const nextMap = theme === "dark" ? darkTexture : originalTextureRef.current;
+    baseMaterial.map = nextMap;
+    baseMaterial.needsUpdate = true;
+  }, [baseMaterial, darkTexture, theme]);
   return (
     <group
       ref={group}

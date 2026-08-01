@@ -16,7 +16,7 @@ const GLOBE_CONFIG= {
   phi: 0,
   theta: 0.3,
 
-  dark: 1,
+  dark: 0,
   diffuse: 0.4,
   mapSamples: 16000,
   mapBrightness: 1.2,
@@ -40,12 +40,18 @@ const GLOBE_CONFIG= {
 export function Globe({
   className,
   config = GLOBE_CONFIG,
+  theme = "dark",
 }) {
   const canvasRef = useRef(null)
   const phiRef = useRef(0)
   const widthRef = useRef(0)
   const pointerInteracting = useRef(null)
   const pointerInteractionMovement = useRef(0)
+  const resolvedConfig = {
+    ...GLOBE_CONFIG,
+    ...config,
+    dark: theme === "dark" ? 0 : 1,
+  }
 
   const r = useMotionValue(0)
   const rs = useSpring(r, {
@@ -80,7 +86,7 @@ export function Globe({
     onResize()
 
     const globe = createGlobe(canvasRef.current, {
-      ...config,
+      ...resolvedConfig,
       width: widthRef.current * 2,
       height: widthRef.current * 2,
       onRender: (state) => {
@@ -96,7 +102,7 @@ export function Globe({
       globe.destroy()
       window.removeEventListener("resize", onResize)
     }
-  }, [rs, config])
+  }, [rs, resolvedConfig])
 
   return (
     <div

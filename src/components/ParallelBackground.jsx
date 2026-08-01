@@ -1,12 +1,16 @@
-import { motion,useScroll,useSpring,useTransform } from "motion/react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 
-const ParallelBackground = () => {
-    const {scrollYProgress} = useScroll();
-    const x = useSpring(scrollYProgress, {damping: 50});
-    const mountain3Y = useTransform(x, [0, 0.5], ["0%", "70%"]);
-    const planetX = useTransform(x, [0, 0.5], ["0%", "-20%"]);
-    const mountain2Y = useTransform(x, [0, 0.5], ["0%", "30%"]);
-    const mountain1Y = useTransform(x, [0, 0.5], ["0%", "0%"]);
+const ParallelBackground = ({ theme = "light" }) => {
+  const { scrollYProgress } = useScroll();
+  const x = useSpring(scrollYProgress, { damping: 50 });
+  const mountain3Y = useTransform(x, [0, 0.5], ["0%", "70%"]);
+  const planetX = useTransform(x, [0, 0.5], ["0%", "-20%"]);
+  const mountain2Y = useTransform(x, [0, 0.5], ["0%", "30%"]);
+  const mountain1Y = useTransform(x, [0, 0.5], ["0%", "0%"]);
+  const skyImage = theme === "dark" ? "/assets/sky-dark" : "/assets/sky.jpg";
+  const mountain1Image = theme === "dark" ? "/assets/mountain-1-dark1.png" : "/assets/mountain-1.png";
+  const mountain2Image = theme === "dark" ? "/assets/mountain-2-dark.png" : "/assets/mountain-2.png";
+  const mountain3Image = theme === "dark" ? "/assets/mountain-3-dark.png" : "/assets/mountain-3.png";
 
   return (
     <section className="absolute inset-0 z-0 h-full w-full">
@@ -15,7 +19,7 @@ const ParallelBackground = () => {
         <div
           className="absolute inset-0 h-[140vh] md:h-[160vh] w-full"
           style={{
-            backgroundImage: "url(/assets/sky.jpg)",
+            backgroundImage: `url(${skyImage})`,
             backgroundPosition: "bottom",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -25,7 +29,7 @@ const ParallelBackground = () => {
         <motion.div
           className="absolute inset-0 z-1 h-[140vh] md:h-[160vh] w-full "
           style={{
-            backgroundImage: "url(/assets/mountain-3.png)",
+            backgroundImage: `url(${mountain3Image})`,
             backgroundPosition: "bottom",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
@@ -47,7 +51,7 @@ const ParallelBackground = () => {
          <motion.div
           className="absolute inset-0 z-3 h-[140vh] md:h-[160vh] w-full "
           style={{
-            backgroundImage: "url(/assets/mountain-2.png)",
+            backgroundImage: `url(${mountain2Image})`,
             backgroundPosition: "bottom",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
@@ -58,7 +62,7 @@ const ParallelBackground = () => {
         <motion.div
           className="absolute inset-0 z-4 h-[140vh] md:h-[160vh] w-full "
           style={{
-            backgroundImage: "url(/assets/mountain-1.png)",
+            backgroundImage: `url(${mountain1Image})`,
             backgroundPosition: "bottom",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
