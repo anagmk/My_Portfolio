@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "./sections/navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/about";
+import Project from "./sections/Project";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -18,9 +19,7 @@ const App = () => {
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero theme={theme} />
       <About theme={theme} />
-      <section className="relative min-h-screen "></section>
-      <section className="relative min-h-screen "></section>
-      <section className="relative min-h-screen "></section>
+      <Project theme={theme} />
       <section className="relative min-h-screen "></section>
       <section className="relative min-h-screen "></section>
       <section className="relative min-h-screen "></section>
