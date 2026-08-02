@@ -13,7 +13,7 @@ const App = () => {
       className={`w-full min-h-screen transition-colors duration-300 ${
         isDark
           ? "bg-gradient-to-b from-black to-gray-800 text-white"
-          : "bg-gradient-to-b from-[black] via-[#4A216A] to-[#F3D6B0] text-slate-900"
+          : "bg-gradient-to-b from-[black] via-[#A48CB3] to-[#F3D6B0] text-slate-900"
       }`}
     >
       <Navbar theme={theme} setTheme={setTheme} />

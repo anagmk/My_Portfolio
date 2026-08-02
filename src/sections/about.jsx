@@ -11,7 +11,9 @@ const about = ({ theme = "light" }) => {
 
   return (
     <section id="about" className="c-space section-spacing scroll-mt-24">
-      <h2 className="head-text">About Me</h2>
+      <h2 className={`text-2xl ${isDark ? "text-white" : "text-[#ffc107]"}`}>
+        About Me
+      </h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
         <div
           className={`grid-1 flex flex-col justify-end rounded-2xl p-6 ${isDark

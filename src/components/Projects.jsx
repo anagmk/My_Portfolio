@@ -8,15 +8,24 @@ const Projects = ({
   href,
   image,
   tags,
+  setPreview,
+  theme = "light",
 }) => {
   const [isHidden, setIsHidden] = useState(false);
+  const isDark = theme === "dark";
 
   return (
     <>
-      <div className="flex flex-col items-start justify-between gap-4 py-10 sm:flex-row sm:items-start">
+      <div className="flex flex-col items-start justify-between gap-4 py-10 sm:flex-row sm:items-start"
+        onMouseEnter={() => setPreview(image)}
+        onMouseLeave={() => setPreview(null)}>
         <div className="flex flex-col items-start">
-          <p className="text-2xl">{title}</p>
-          <div className="mt-2 flex flex-wrap gap-5 text-sand">
+          <p className={`text-2xl ${isDark ? "text-white" : "text-slate-900"}`}>{title}</p>
+          <div
+            className={`mt-2 flex flex-wrap gap-5 ${
+              isDark ? "text-[#f5c451]" : "text-[#7c3aed]"
+            }`}
+          >
             {tags.map((tag) => (
               <span key={tag.id}>{tag.name}</span>
             ))}
