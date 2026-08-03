@@ -11,7 +11,7 @@ const Hero = ({ theme }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[140vh] md:min-h-[160vh] overflow-hidden"
+      className="relative min-h-[140vh] md:min-h-[160vh] overflow-hidden px-10"
     >
       {/* Background */}
       <ParallelBackground theme={theme} />

@@ -2,7 +2,9 @@ import { useState } from "react";
 import Navbar from "./sections/navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/about";
+import Experience from "./sections/Experience";
 import Project from "./sections/Project";
+import Contact from "./sections/Contact";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -20,9 +22,8 @@ const App = () => {
       <Hero theme={theme} />
       <About theme={theme} />
       <Project theme={theme} />
-      <section className="relative min-h-screen "></section>
-      <section className="relative min-h-screen "></section>
-      <section className="relative min-h-screen "></section>
+      <Experience theme={theme} />
+      <Contact theme={theme} />
     </div>
   );
 };

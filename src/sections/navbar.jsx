@@ -19,7 +19,7 @@ function Navigation() {
         </a>
       </li>
       <li className="nav-li">
-        <a href="/contact" className="nav-link">
+        <a href="#contact" className="nav-link">
           Contact
         </a>
       </li>
@@ -31,7 +31,7 @@ const Navbar = ({ theme, setTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed inset-x-0 z-50 w-full backdrop-blur-lg bg bg-primary/40">
+    <div className="fixed inset-x-0 z-50 w-full backdrop-blur-lg bg bg-primary/40 px-10">
       <div className="mx-auto container py-4">
         <div className="flex justify-between items-center gap-4">
           <a

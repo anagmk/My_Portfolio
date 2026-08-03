@@ -8,6 +8,23 @@ import FrameWorks from "../components/FrameWorks";
 const about = ({ theme = "light" }) => {
   const grid2Container = useRef();
   const isDark = theme === "dark";
+  const socialLinks = [
+    {
+      href: "https://github.com/anagmk",
+      icon: "/assets/logos/github.svg",
+      label: "GitHub",
+    },
+    {
+      href: "https://www.linkedin.com/in/anagmk-dev",
+      icon: "/assets/socials/linkedIn.svg",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://www.instagram.com/an_._ag/",
+      icon: "/assets/socials/instagram.svg",
+      label: "Instagram",
+    },
+  ];
 
   return (
     <section id="about" className="c-space section-spacing scroll-mt-24">
@@ -36,6 +53,20 @@ const about = ({ theme = "light" }) => {
               I'm a Full Stack Developer passionate about building immersive
               digital experiences and modern web applications.
             </p>
+            <div className="mt-5 flex items-center gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.label}
+                  className="rounded-full border border-white/20 bg-white/10 p-2 transition hover:-translate-y-0.5 hover:bg-white/20"
+                >
+                  <img src={social.icon} alt={social.label} className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
           </div>
           <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo"></div>
         </div>

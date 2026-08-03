@@ -22,10 +22,10 @@ const project = ({ theme = "light" }) => {
     <section
       id="projects"
       onMouseMove={handleMouseMove}
-      className="relative c-space section-spacing scroll-mt-24"
+      className="relative c-space mt-20 scroll-mt-24"
     >
       <div
-        className={`rounded-[2rem] border p-5 md:p-8 backdrop-blur-sm ${
+        className={`rounded-[2rem] border p-5 md:p-8 backdrop-blur-l ${
           isDark
             ? "border-white/10 bg-slate-950/60 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]"
             : "border-[#7c3aed]/30 bg-[linear-gradient(135deg,rgba(255,245,220,0.75),rgba(243,214,176,0.55),rgba(173,147,214,0.6))] shadow-[0_20px_60px_rgba(73,35,102,0.18)]"
