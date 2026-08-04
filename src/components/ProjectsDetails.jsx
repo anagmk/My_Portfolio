@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "motion/react";
 
 const ProjectsDetails = ({
@@ -9,11 +10,40 @@ const ProjectsDetails = ({
   tags,
   closeModal,
 }) => {
+  useEffect(() => {
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") closeModal();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [closeModal]);
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden backdrop-blur-sm">
-      <motion.div className="relatuve max-w-2xl border shadow-sm rounded-2xl bng-gradient-to-l from-midnight to-navy border-white/10"
+    <div
+      className="fixed inset-0 z-[60] flex size-full items-center justify-center overflow-y-auto bg-slate-950/45 p-4 backdrop-blur-2xl"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${title} project details`}
+      onClick={closeModal}
+    >
+      <motion.div
+        className="relative my-auto max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-l from-midnight to-navy shadow-2xl"
         initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}>
+        animate={{ opacity: 1, scale: 1 }}
+        onClick={(event) => event.stopPropagation()}
+      >
         <button
           onClick={closeModal}
           className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"

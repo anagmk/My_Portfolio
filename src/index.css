@@ -123,6 +123,25 @@ body {
 .grid-special-color {
   @apply p-6 bg-gradient-to-b from-royal to-lavender rounded-2xl;
 }
+
+.about-ripple {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid;
+  border-radius: 9999px;
+  animation: about-ripple 5s ease-out infinite;
+}
+
+.about-ripple-light { border-color: rgb(255 255 255 / 0.5); }
+.about-ripple-dark { border-color: rgb(245 196 81 / 0.45); }
+.about-ripple-delay-1 { animation-delay: -1.65s; }
+.about-ripple-delay-2 { animation-delay: -3.3s; }
+
+@keyframes about-ripple {
+  0% { opacity: 0.75; transform: scale(0.2); }
+  100% { opacity: 0; transform: scale(4); }
+}
 .grid-black-color {
   @apply p-6 bg-gradient-to-tl from-[#3A3A3A] via-[#242424] to-[#3A3A3A] rounded-2xl;
 }

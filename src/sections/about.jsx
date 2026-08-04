@@ -50,6 +50,11 @@ const about = ({ theme = "light" }) => {
               : "bg-gradient-to-br from-[#f7d8b5] via-[#f1e1d4] to-[#7a5b9d]"
           }`}
         >
+          {/* <div className="pointer-events-none absolute right-[50%]  top-[50%] z-[1]" aria-hidden="true">
+            <span className={`about-ripple ${isDark ? "about-ripple-dark" : "about-ripple-light"}`} />
+            <span className={`about-ripple about-ripple-delay-1 ${isDark ? "about-ripple-dark" : "about-ripple-light"}`} />
+            <span className={`about-ripple about-ripple-delay-2 ${isDark ? "about-ripple-dark" : "about-ripple-light"}`} />
+          </div> */}
           <img
             src={codingImage}
             alt="coding_image"
