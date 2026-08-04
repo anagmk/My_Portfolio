@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./sections/navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/about";
@@ -7,8 +7,16 @@ import Project from "./sections/Project";
 import Contact from "./sections/Contact";
 
 const App = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    return savedTheme === "dark" || savedTheme === "light" ? savedTheme : "light";
+  });
   const isDark = theme === "dark";
+
+  useEffect(() => {
+    localStorage.setItem("portfolio-theme", theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
 
   return (
     <div

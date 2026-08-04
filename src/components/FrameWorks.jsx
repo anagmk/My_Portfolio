@@ -23,11 +23,6 @@ export function FrameWork() {
           <Icon key={skill.name} src={`/assets/logos/${skill.name}.svg`} alt={skill.alt} />
         ))}
       </OrbitingCircles>
-      <OrbitingCircles iconSize={20} radius={100} reverse speed={2}>
-        {skills.reverse().map((skill) => (
-          <Icon key={`${skill.name}-secondary`} src={`/assets/logos/${skill.name}.svg`} alt={skill.alt} />
-        ))}
-      </OrbitingCircles>
     </div>
   );
 }

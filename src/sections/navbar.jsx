@@ -1,13 +1,9 @@
 import { useState } from "react";
+import { AnimatedThemeToggler } from "../components/themeChange";
 
 function Navigation() {
   return (
     <ul className="nav-ul">
-      <li className="nav-li">
-        <a href="/" className="nav-link">
-          Home
-        </a>
-      </li>
       <li className="nav-li">
         <a href="#about" className="nav-link">
           About
@@ -38,32 +34,15 @@ const Navbar = ({ theme, setTheme }) => {
             href="/"
             className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
           >
-            My App
+          ANAG
           </a>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setTheme("dark")}
-              className={`rounded-full border px-3 py-1 text-xs transition ${
-                theme === "dark"
-                  ? "bg-white text-black border-white"
-                  : "bg-transparent text-white border-white/40"
-              }`}
-            >
-              Dark
-            </button>
-            <button
-              type="button"
-              onClick={() => setTheme("light")}
-              className={`rounded-full border px-3 py-1 text-xs transition ${
-                theme === "light"
-                  ? "bg-white text-black border-white"
-                  : "bg-transparent text-white border-white/40"
-              }`}
-            >
-              Light
-            </button>
+            <AnimatedThemeToggler
+              theme={theme}
+              onThemeChange={setTheme}
+              className="flex size-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition hover:scale-105 hover:bg-white/20"
+            />
           </div>
 
           <button

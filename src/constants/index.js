@@ -37,43 +37,43 @@ export const myProjects = [
       },
     ],
   },
-  {
-    id: 2,
-    title: "3D Portfolio",
-    description:
-      "A body of 3D product and architectural visualization work built on a Wood and Paper Technology background, blending design craft with technical rendering.",
-    subDescription: [
-      "Modeled and rendered furniture pieces with an emphasis on realistic materials, lighting, and product presentation.",
-      "Applied a background in Wood and Paper Technology to bring domain-accurate detail to furniture construction and finishes.",
-      "Worked extensively in Blender, covering modeling, texturing, rigging, and animation, including character walk and run cycles.",
-      "Built a freelance pipeline for architecture firms and furniture brands, positioning 3D visualization as a platform-independent service offering.",
-    ],
-    href: "",
-    logo: "",
-    image: "/assets/projects/3d-portfolio.png",
-    tags: [
-      {
-        id: 1,
-        name: "Blender",
-        path: "/assets/logos/blender.svg",
-      },
-      {
-        id: 2,
-        name: "3D Modeling",
-        path: "/assets/logos/3dmodeling.svg",
-      },
-      {
-        id: 3,
-        name: "Rendering",
-        path: "/assets/logos/rendering.svg",
-      },
-      {
-        id: 4,
-        name: "Animation",
-        path: "/assets/logos/animation.svg",
-      },
-    ],
-  },
+  // {
+  //   id: 2,
+  //   title: "3D Portfolio",
+  //   description:
+  //     "A body of 3D product and architectural visualization work built on a Wood and Paper Technology background, blending design craft with technical rendering.",
+  //   subDescription: [
+  //     "Modeled and rendered furniture pieces with an emphasis on realistic materials, lighting, and product presentation.",
+  //     "Applied a background in Wood and Paper Technology to bring domain-accurate detail to furniture construction and finishes.",
+  //     "Worked extensively in Blender, covering modeling, texturing, rigging, and animation, including character walk and run cycles.",
+  //     "Built a freelance pipeline for architecture firms and furniture brands, positioning 3D visualization as a platform-independent service offering.",
+  //   ],
+  //   href: "",
+  //   logo: "",
+  //   image: "/assets/projects/3d-portfolio.png",
+  //   tags: [
+  //     {
+  //       id: 1,
+  //       name: "Blender",
+  //       path: "/assets/logos/blender.svg",
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "3D Modeling",
+  //       path: "/assets/logos/3dmodeling.svg",
+  //     },
+  //     {
+  //       id: 3,
+  //       name: "Rendering",
+  //       path: "/assets/logos/rendering.svg",
+  //     },
+  //     {
+  //       id: 4,
+  //       name: "Animation",
+  //       path: "/assets/logos/animation.svg",
+  //     },
+  //   ],
+  // },
   {
     id: 3,
     title: "Developer Interview Platform - NexMeet",

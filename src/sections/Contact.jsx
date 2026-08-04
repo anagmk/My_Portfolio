@@ -5,23 +5,35 @@ const Contact = ({ theme = "light" }) => {
   const isDark = theme === "dark";
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsSending(true);
+    setStatus("");
 
-    const subject = encodeURIComponent(`Portfolio contact from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
-    );
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result = await response.json();
 
-    window.location.href = `mailto:mkanag40@gmail.com?subject=${subject}&body=${body}`;
-    setStatus("Your email app is opening with the message ready to send.");
-    setForm({ name: "", email: "", message: "" });
+      if (!response.ok) throw new Error(result.message);
+
+      setStatus(result.message);
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus(error.message || "Unable to send your message. Please try again later.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -123,13 +135,14 @@ const Contact = ({ theme = "light" }) => {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="submit"
+                disabled={isSending}
                 className={`rounded-full px-5 py-3 font-semibold transition hover:-translate-y-0.5 ${
                   isDark
                     ? "bg-[#f5c451] text-slate-950"
                     : "bg-[#d97706] text-white"
-                }`}
+                } disabled:cursor-not-allowed disabled:opacity-60`}
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
               </button>
 
               {status && (

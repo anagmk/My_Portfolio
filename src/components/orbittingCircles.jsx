@@ -6,11 +6,11 @@ export function OrbitingCircles({
   className,
   children,
   reverse,
-  duration = 20,
+  duration = 10,
   radius = 160,
   path = true,
-  iconSize = 30,
-  speed = 1,
+  iconSize = 10,
+  speed = .5,
   style,
   ...props
 }) {
