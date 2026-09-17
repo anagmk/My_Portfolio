@@ -3,6 +3,7 @@ import OrbitingCircles from "./orbittingCircles";
 export function FrameWork() {
   const skills = [
     { name: "javascript", alt: "JavaScript" },
+    { name: "typescript", alt: "TypeScript" },
     { name: "react", alt: "React" },
     { name: "git", alt: "Git" },
     { name: "tailwindcss", alt: "Tailwind CSS" },

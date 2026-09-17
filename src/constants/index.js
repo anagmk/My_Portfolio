@@ -85,9 +85,9 @@ export const myProjects = [
       "Planning role-based access for candidates, interviewers, and admins.",
       "Upcoming: real-time code collaboration and automated assessment scoring.",
     ],
-    href: "",
-    logo: "",
-    image: "/assets/projects/dev-interview-platform.png",
+    href: "https://next-meet-nine.vercel.app/",
+    logo: "NextMeet",
+    image: "/assets/projects/NextMeet_Project.png",
     tags: [
       {
         id: 1,

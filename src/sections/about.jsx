@@ -29,6 +29,7 @@ const about = ({ theme = "light" }) => {
   const skills = [
     { name: "MongoDB", icon: "mongodb.svg" },
     { name: "JavaScript", icon: "javascript.svg" },
+    { name: "TypeScript", icon: "typescript.svg" },
     { name: "Express.js", icon: "expressjs.svg" },
     { name: "Node.js", icon: "nodejs.svg" },
     { name: "CSS3", icon: "css3.svg" },

@@ -11,7 +11,7 @@ const DownloadCVButton = ({ theme = "light" }) => {
 
   return (
     <motion.a
-      href="/assets/anag-mk-cv.pdf"
+      href="/assets/Anag_MK_Resume.pdf"
       download
       whileHover={{ y: -5 }}
       whileTap={{ scale: 1.05 }}
